@@ -94,7 +94,7 @@ def conn_and_create_db():
 
 
 
-
+#Will insert values in the databse if the not already exists
 def insert_values_to_db():
     with open('persons.json','r+',encoding='utf-8') as access_json:
         data = json.load(access_json)
@@ -136,8 +136,6 @@ def insert_values_to_db():
                 i += 1
                
             
-
-
 ####################CLICK######################
 
 @click.group()
@@ -308,8 +306,6 @@ def most_secure_password():
     click.echo(str(max_key) + " most secure password, get's the max point " + str(max_val))
 
 
-#conn_and_create_db()
-#insert_values_to_db()
 
 
 cli.add_command(get_percents)
@@ -324,4 +320,6 @@ cli.add_command(most_secure_password)
 
 
 if __name__ == '__main__':
+    conn_and_create_db()
+    insert_values_to_db()
     cli()
