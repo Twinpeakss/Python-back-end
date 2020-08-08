@@ -16,11 +16,12 @@ Start with clone this repository:
 $ git clone https://github.com/Twinpeakss/Python-back-end
 ```
 To run this project, install some packages if not already exist:
-*Click
+
+* Click
 ```sh
 pip install click
 ```
-*Peewee
+* Peewee
 ```sh
 pip install peewee
 ```
@@ -49,7 +50,7 @@ $python script.py
 
 ![GIF](http://g.recordit.co/jHn4h5rWcy.gif)
 
-Or just write this to get all the peoples in given dates as parameters:
+Or for example just write this to get all the peoples in given dates as parameters:
 
 ```sh
 python script.py get-dates-between -f '1971-05-20' -t '1992-05-06'
