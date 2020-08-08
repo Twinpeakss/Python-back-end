@@ -243,12 +243,12 @@ def get_users_in_range_dates(from_,to):
 #regex validation of the date
 def datetime_validation(some_date):
     pattern1 = "\d{4}.\d{2}.\d{2}"  #YYYY-MM-DD 
-    pattern2 = "\d{2}.\d{2}.\d{4}"  #DD-MM-YYYY
-    pattern3 = "[]{2}.[0-31]{2}.\d{4}"  #american MM-DD-YYYY format
+    pattern2 = "^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"  #DD-MM-YYYY
+    pattern3 = "^(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d$"  #american MM-DD-YYYY format
     validated = ''   
     result1 = re.fullmatch(pattern1,some_date)
     result2 = re.fullmatch(pattern2,some_date)
-    result3 = re.fullmatch(pattern3,some_date)
+    result3 = re.match(pattern3,some_date)
     try:
         if(result1):
             validated = datetime.strptime(some_date, '%Y-%m-%d')
@@ -259,8 +259,8 @@ def datetime_validation(some_date):
         if(result3):
             validated = datetime.strptime(some_date, '%m-%d-%Y')
 
-    except ValueError:
-        raise('Incorrect data format')
+    except ValueError as error:
+        raise(error)
 
 
     return validated
