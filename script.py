@@ -5,7 +5,7 @@ from datetime import datetime
 import re
 import click
 
-
+###Models###
 db = SqliteDatabase('people.db')
 
 class BaseModel(Model):    
@@ -146,19 +146,18 @@ def cli():
 def get_percents():
     """Returns the percents of males and females""" 
     query_m = Person.select().where(Person.gender == 'male')
-    query_f = Person.select().where(Person.gender == 'female')
+    quantity = Person.select()
 
-    i = 0
-    j = 0
+    persons = 0
+    for p in quantity:
+        persons += 1
+
+    mens = 0
     for gender in query_m:
-        i+=1
+        mens +=1
 
-    for gender in query_f:
-        j+=1    
-
-
-    males =  (i/ 1000) * 100
-    females = (j/1000) * 100
+    males =  (mens/persons) * 100
+    females = 100 - males  ##I assume that it is only mens and womans in the database xD
     click.echo(str(males) +'% of mens in the database')
     click.echo(str(females) +'% of womans in the database')
 

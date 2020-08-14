@@ -102,11 +102,7 @@ def remove_picture_field():
 
 
 
-if __name__ == '__main__':
-    dates = get_persons_dates()
-    converted_date_time = convert_dates_to_the_date_time(dates)
-    days = get_days_until_birtday(converted_date_time,now)
-    create_field_and_put_days()
-    numbers = get_phone_numbers_and_clear()
-    put_numbs_toJson(numbers)
+if __name__ == '__main__': 
+    create_field_and_put_days(get_days_until_birtday(convert_dates_to_the_date_time(get_persons_dates()),now))
+    put_numbs_toJson(get_phone_numbers_and_clear())
     remove_picture_field()
