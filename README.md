@@ -29,21 +29,14 @@ pip install peewee
 
 ## Using
 
-Step 1
-main.py
-This file is used for edit json file like edit/delete some fields for purpose of task.
-If you interested how it working you can run this one or  go to step 2 and run another script which alredy working with edited json file. 
-
-Step 2
 Just run "script.py." then you will get the list of all available commands.
 
 ## Launch
-For running projects files, just use one of the commands below:
+For running projects files, just use command below:
 
 ```sh
-$python main.py
-
 $python script.py
+
 ```
 
 ## Available commands
